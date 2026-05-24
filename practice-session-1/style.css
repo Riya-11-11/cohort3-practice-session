@@ -1,0 +1,282 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+main {
+  width: 100%;
+  height: 100%;
+}
+
+main {
+  width: 100%;
+  height: 100%;
+  background-color: #fbfbfb;
+  padding: 0 30px;
+}
+
+#section-1 {
+  width: 100%;
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+nav {
+  width: 100%;
+  height: 70px;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav .header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header i {
+  font-size: 28px;
+}
+
+.header h1 {
+  font-size: 30px;
+}
+
+.links {
+  display: flex;
+  gap: 10px;
+  width: 60%;
+  justify-content: center;
+}
+
+.links a {
+  text-decoration: none;
+  color: #000;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.btn {
+  display: flex;
+  gap: 10px;
+}
+
+.btn button {
+  padding: 10px 25px;
+  border: none;
+  border-radius: 20px;
+}
+
+.btn button:nth-child(2) {
+  background-color: #000;
+  color: white;
+}
+
+.hero-div {
+  width: 100%;
+  height: calc(100% - 70px);
+  background-color: rgba(238, 238, 238, 0.662);
+  border-radius: 20px;
+  display: flex;
+  overflow: hidden;
+  padding: 15px 30px;
+}
+
+.hero-div .left {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.left .rating {
+  padding: 10px 30px;
+  display: flex;
+  background-color: white;
+  width: fit-content;
+  border-radius: 50px;
+  gap: 10px;
+  align-items: center;
+  margin-top: 60px;
+}
+
+.rating i {
+  font-size: 25px;
+}
+
+.rating-text h3 {
+  font-size: 16px;
+}
+
+.rating-text span {
+  font-size: 14px;
+  opacity: 0.4;
+}
+
+.left h1 {
+  font-size: 90px;
+  line-height: 90px;
+  font-weight: 600;
+  margin-top: 60px;
+}
+
+.left p {
+  font-size: 15px;
+  opacity: 0.8;
+  width: 95%;
+  margin-top: 60px;
+}
+
+.left .btn button {
+  padding: 15px 40px;
+  border-radius: 50px;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+.btn button:nth-child(1) {
+  background-color: #dadada;
+}
+
+.btn #arrow-left {
+  width: 25px;
+  height: 25px;
+  background-color: white;
+  border-radius: 50%;
+  color: black;
+}
+
+.left .logos img {
+  height: 70px;
+  font-weight: 600;
+}
+
+.logos {
+  display: flex;
+  gap: 40px;
+}
+
+/* .left .logos img{
+    height: 70px;
+} */
+
+.left>h3 {
+  margin-top: 6px;
+}
+
+.hero-div .right {
+  width: 50%;
+  height: 100%;
+
+}
+
+.right .imageDiv {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#section-2 {
+  width: 100%;
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 15px 0px;
+}
+
+.marquee-div {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  gap: 20px;
+}
+
+.card {
+  width: 25%;
+  height: 400px;
+  background-color: rgba(238, 238, 238, 0.662);
+  border-radius: 10px;
+  padding: 5px 10px;
+}
+
+.marquee-img-div i {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card .marquee-img-div {
+  width: 100%;
+  height: 90%;
+  background-image: url(clay-banks-NKmqPlLCLTU-unsplash.jpg);
+  background-size: cover;
+  background-position: bottom;
+  border-radius: 10px;
+  display: flex;
+  justify-content: end;
+  padding: 10px 25px;
+}
+
+.card .marquee-text {
+  display: flex;
+  margin-top: 15px;
+  justify-content: space-between;
+}
+
+.marquee-text h4 {
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.marquee-text p {
+  font-size: 14px;
+  opacity: 0.5;
+}
+
+.card:nth-child(3) {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 30px;
+}
+
+.card:nth-child(2) .marquee-img-div {
+  background-image: url(andrew-peluso-8GP6I7C-Ynk-unsplash.jpg);
+}
+
+.card:nth-child(4) .marquee-img-div {
+  background-image: url(christina-radevich-Lbb7GlLjsHA-unsplash.jpg);
+}
+
+.explore-more {
+  display: flex;
+  gap: 10px;
+}
+
+.explore-more i {
+  background-color: black;
+  color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+}
