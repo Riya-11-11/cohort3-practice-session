@@ -12,16 +12,6 @@ body {
   padding: 30px;
 }
 
-/* body.dark-theme {
-    background: #0f1117;
-    color: white;
-}
-
-body.light-theme {
-    background: white;
-    color: black;
-} */
-
 .heading {
   display: flex;
   justify-content: space-between;
@@ -128,10 +118,6 @@ body.light-theme {
   outline: none;
 }
 
-/* #task-input::placeholder{
-color: #888;
-} */
-
 #add-task-button {
   padding: 14px 20px;
   border: none;
@@ -218,13 +204,87 @@ color: #888;
 }
 
 .low{
-  border-left: 5px solid green;
+  border: 5px solid green;
 }
 
 .medium {
-  border-left: 5px solid #3B82F6;
+  border: 5px solid #3B82F6;
 }
 
 .high{
-  border-left: 5px solid red;
+  border: 5px solid red;
+}
+
+body.light-theme {
+  background-color: #f4f6fb;
+  color: #1a1d26;
+}
+
+body.light-theme .heading,
+body.light-theme .total,
+body.light-theme .completed,
+body.light-theme .pending,
+body.light-theme .progress-container,
+body.light-theme .task-list,
+body.light-theme .priority,
+body.light-theme .task-list-container {
+  background-color: #ffffff;
+  color: #1a1d26;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+body.light-theme #theme-toggle {
+  background-color: #e9ecf5;
+  color: #1a1d26;
+}
+
+body.light-theme #task-input {
+  background-color: #f1f3f8;
+  color: #1a1d26;
+}
+
+body.light-theme #task-input::placeholder {
+  color: #777;
+}
+
+body.light-theme .progress-track {
+  background-color: #e0e4ef;
+}
+
+body.light-theme .progress-fill {
+  background-color: #6d5dfc;
+}
+
+body.light-theme #add-task-button {
+  background-color: #6d5dfc;
+  color: white;
+}
+
+body.light-theme .task-list:hover {
+  background-color: #f0f3fa;
+}
+
+body.light-theme #priority-select {
+  color: #1a1d26;
+}
+
+body.light-theme .completed-task {
+  background-color: #d1f7d6 !important;
+}
+
+body.light-theme .completed-task h3 {
+  text-decoration: line-through;
+  color: #2e7d32;
+}
+
+body.light-theme .low {
+  border: 3px solid #22c55e;
+}
+
+body.light-theme .medium {
+  border: 3px solid #3b82f6;
+}
+
+body.light-theme .high {
+  border: 3px solid #ef4444;
 }

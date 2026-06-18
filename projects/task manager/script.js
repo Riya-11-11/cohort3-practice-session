@@ -8,17 +8,42 @@ let addTaskInp = document.querySelector("#task-input");
 let addTaskBtn = document.querySelector("#add-task-button");
 
 let priorityOptions = document.querySelector("#priority-select");
-
 let completeToggleBtn = document.querySelector("#complete-toggle");
 
-let editBtn = document.querySelector(".edit-button");
-let deleteBtn = document.querySelector(".delete-button");
-
 let taskListContainer = document.querySelector(".task-list-container");
-let taskList = document.querySelector(".task-list");
+
+let progressPercent = document.querySelector("#progress-percent");
+let progressFill = document.querySelector(".progress-fill");
+
+document.body.addEventListener("click", (e) => {
+  console.log(e.target);
+
+  if (e.target.id === "theme-toggle") {
+    document.body.classList.toggle("light-theme");
+
+    if (document.body.classList.contains("light-theme")) {
+      themeToggleBtn.textContent = "Dark";
+    } else {
+      themeToggleBtn.textContent = "Light";
+    }
+  }
+});
 
 addTaskBtn.addEventListener("click", () => {
   let taskInpVal = addTaskInp.value;
+  let priorityClass = "";
+
+  let highPriority = priorityOptions.value === "high";
+  let mediumPriority = priorityOptions.value === "medium";
+  let lowPriority = priorityOptions.value === "low";
+
+  if (highPriority) {
+    priorityClass = "high";
+  } else if (mediumPriority) {
+    priorityClass = "medium";
+  } else {
+    priorityClass = "low";
+  }
 
   if (taskInpVal.trim() === "") {
     alert("Enter something to add task!!!");
@@ -26,7 +51,7 @@ addTaskBtn.addEventListener("click", () => {
   }
 
   taskListContainer.innerHTML += `
-   <div class="task-list">
+   <div class="task-list ${priorityClass}">
         <button class="complete-toggle"></button>
         <h3>${taskInpVal}</h3>
         <div class="task-actions">
@@ -38,51 +63,57 @@ addTaskBtn.addEventListener("click", () => {
   addTaskInp.value = "";
 
   totalTask.textContent++;
-  pendingTask.textContent++;
+  confusingUI();
 });
 
 taskListContainer.addEventListener("click", (e) => {
   //event delegation
   // console.log(e.target.className);
 
-  if (e.target.className === "delete-button") {
-    e.target.closest(".task-list").remove(); //e.target.parentElement.parentElement.remove();
-
-    totalTask.textContent--;
-    pendingTask.textContent--;
-  }
-
   let clickedTask = e.target.closest(".task-list");
+  if (!clickedTask) return;
 
   if (e.target.className === "complete-toggle") {
     if (clickedTask.classList.toggle("completed-task")) {
       completedTask.textContent++;
-      pendingTask.textContent--;
     } else {
       completedTask.textContent--;
-      pendingTask.textContent++;
     }
+
+    confusingUI();
+  }
+
+  if (e.target.className === "delete-button") {
+    let isCompleted = clickedTask.classList.contains("completed-task");
+
+    if (isCompleted) {
+      completedTask.textContent--;
+    }
+
+    totalTask.textContent--;
+
+    e.target.closest(".task-list").remove(); //e.target.parentElement.parentElement.remove();
+    confusingUI();
   }
 
   if (e.target.className === "edit-button") {
     let taskText = clickedTask.querySelector("h3");
     let updatedTask = prompt("Enter updated task");
-    if (updatedTask.trim() !== "") {
+
+    if (updatedTask && updatedTask.trim() !== "") {
       taskText.textContent = updatedTask;
     }
   }
 });
 
-let priorityClass = "";
+function confusingUI() {
+  let total = Number(totalTask.textContent);
+  let completed = Number(completedTask.textContent);
 
-let highPriority = priorityOptions.value === "high";
-let mediumPriority = priorityOptions.value === "medium";
-let lowPriority = priorityOptions.value === "low";
+  pendingTask.textContent = total - completed;
 
-if (highPriority) {
-  priorityClass="high"
-}else if (mediumPriority) {
-  priorityClass="medium"
-} else {
-  priorityClass="low"
+  let progress = total === 0 ? 0 : (completed / total) * 100;
+
+  progressFill.style.width = progress + "%";
+  progressPercent.textContent = Math.floor(progress) + "%";
 }
