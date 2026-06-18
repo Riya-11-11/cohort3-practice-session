@@ -138,7 +138,7 @@ body {
 }
 
 #priority-select {
-  background: transparent;
+  background: #1a1d26;
   color: white;
   border: none;
   outline: none;
@@ -227,6 +227,7 @@ body.light-theme .pending,
 body.light-theme .progress-container,
 body.light-theme .task-list,
 body.light-theme .priority,
+body.light-theme #priority-select,
 body.light-theme .task-list-container {
   background-color: #ffffff;
   color: #1a1d26;
