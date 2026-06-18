@@ -208,3 +208,23 @@ color: #888;
   height: 20px;
   cursor: pointer;
 }
+
+.completed-task{
+   background-color: green !important;
+}
+
+.completed-task h3{
+  text-decoration: line-through;
+}
+
+.low{
+  border-left: 5px solid green;
+}
+
+.medium {
+  border-left: 5px solid #3B82F6;
+}
+
+.high{
+  border-left: 5px solid red;
+}

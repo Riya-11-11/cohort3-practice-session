@@ -2,7 +2,7 @@ let themeToggleBtn = document.querySelector("#theme-toggle");
 
 let totalTask = document.querySelector("#total-tasks");
 let pendingTask = document.querySelector("#pending-tasks");
-let completedTask = document.querySelector(".completed-tasks");
+let completedTask = document.querySelector("#completed-tasks");
 
 let addTaskInp = document.querySelector("#task-input");
 let addTaskBtn = document.querySelector("#add-task-button");
@@ -41,7 +41,8 @@ addTaskBtn.addEventListener("click", () => {
   pendingTask.textContent++;
 });
 
-taskListContainer.addEventListener("click", (e) => {//event delegation
+taskListContainer.addEventListener("click", (e) => {
+  //event delegation
   // console.log(e.target.className);
 
   if (e.target.className === "delete-button") {
@@ -51,11 +52,37 @@ taskListContainer.addEventListener("click", (e) => {//event delegation
     pendingTask.textContent--;
   }
 
-  if (e.target.className==="complete-toggle") {
-    taskList.style.backgroundColor = "green";
-    taskList.style.textDecoration = "line-through";
+  let clickedTask = e.target.closest(".task-list");
 
-    completedTask.textContent++;
-    pendingTask.textContent--;
+  if (e.target.className === "complete-toggle") {
+    if (clickedTask.classList.toggle("completed-task")) {
+      completedTask.textContent++;
+      pendingTask.textContent--;
+    } else {
+      completedTask.textContent--;
+      pendingTask.textContent++;
+    }
+  }
+
+  if (e.target.className === "edit-button") {
+    let taskText = clickedTask.querySelector("h3");
+    let updatedTask = prompt("Enter updated task");
+    if (updatedTask.trim() !== "") {
+      taskText.textContent = updatedTask;
+    }
   }
 });
+
+let priorityClass = "";
+
+let highPriority = priorityOptions.value === "high";
+let mediumPriority = priorityOptions.value === "medium";
+let lowPriority = priorityOptions.value === "low";
+
+if (highPriority) {
+  priorityClass="high"
+}else if (mediumPriority) {
+  priorityClass="medium"
+} else {
+  priorityClass="low"
+}
