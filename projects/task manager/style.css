@@ -203,7 +203,7 @@ color: #888;
   cursor: pointer;
 }
 
-#complete-toggle {
+.complete-toggle {
   width: 20px;
   height: 20px;
   cursor: pointer;
